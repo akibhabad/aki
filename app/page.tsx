@@ -1,23 +1,21 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import AnimatedName from '@/components/AnimatedName'
 
 export const metadata: Metadata = {
   title: 'Aki Bhabad',
 }
 
+const sections = [
+  { href: '/writing',  label: 'Some of my writing'  },
+  { href: '/projects', label: 'Some of my projects' },
+  { href: '/astro',    label: 'My Astro'            },
+]
+
 export default function HomePage() {
   return (
-    <div style={{ paddingTop: '80px', maxWidth: '680px', margin: '0 auto', padding: '7rem 1.5rem 6rem' }}>
-      <h1 style={{
-        fontFamily: 'Georgia, serif',
-        fontSize: 'clamp(1.75rem, 4vw, 2.25rem)',
-        fontWeight: 'normal',
-        color: '#dddae8',
-        marginBottom: '1.25rem',
-        letterSpacing: '-0.01em',
-      }}>
-        Aki Bhabad
-      </h1>
+    <div style={{ maxWidth: '680px', margin: '0 auto', padding: '7rem 1.5rem 6rem' }}>
+      <AnimatedName />
 
       <p style={{
         fontFamily: 'system-ui, sans-serif',
@@ -32,24 +30,30 @@ export default function HomePage() {
       <p style={{
         fontFamily: 'Georgia, serif',
         fontSize: '0.9375rem',
-        color: '#8a8699',
+        color: '#7a7692',
         lineHeight: 1.75,
-        marginBottom: '3rem',
-        maxWidth: '480px',
+        marginBottom: '3.5rem',
+        maxWidth: '460px',
       }}>
         This site is a home for writing, projects, and ideas I'm working through.
       </p>
 
-      <Link href="/writing" style={{
-        fontFamily: 'system-ui, sans-serif',
-        fontSize: '0.875rem',
-        color: '#7c5cbf',
-        borderBottom: '1px solid rgba(124, 92, 191, 0.35)',
-        paddingBottom: '1px',
-        transition: 'border-color 0.15s',
-      }}>
-        Read the writing →
-      </Link>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start' }}>
+        {sections.map(({ href, label }) => (
+          <Link key={href} href={href} style={{
+            fontFamily: 'system-ui, sans-serif',
+            fontSize: '0.875rem',
+            color: '#7c5cbf',
+            border: '1px solid rgba(124, 92, 191, 0.25)',
+            padding: '0.45rem 1rem',
+            borderRadius: '5px',
+            display: 'inline-block',
+            letterSpacing: '0.01em',
+          }}>
+            {label} →
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

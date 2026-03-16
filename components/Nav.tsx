@@ -9,6 +9,7 @@ const links = [
   { href: '/projects', label: 'Projects' },
   { href: '/curiosities', label: 'Curiosities' },
   { href: '/library', label: 'Library' },
+  { href: '/astro', label: 'Astro' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
