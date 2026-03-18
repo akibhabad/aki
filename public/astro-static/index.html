@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aki Bhabad's astrophotography portfolio - capturing deep sky objects, galaxies, nebulae, and the Milky Way">
+    <title>Aki's AstroGallery | Astrophotography Portfolio</title>
+    <link rel="stylesheet" href="/astro-static/styles.css">
+    <script src="/astro-static/script.js" defer></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="/" style="color:rgba(249,250,251,0.45);font-size:0.75rem;text-decoration:none;letter-spacing:0.05em;margin-right:1.25rem;transition:color 0.2s;" onmouseover="this.style.color='rgba(249,250,251,0.85)'" onmouseout="this.style.color='rgba(249,250,251,0.45)'">← akibhabad.com</a>
+            <div class="nav-brand">Aki's AstroGallery</div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#featured" class="nav-link">Featured</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#behind-scenes" class="nav-link">Behind the Scenes</a></li>
+                <li><a href="#gear" class="nav-link">Gear</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-background"></div>
+            <div class="hero-content reveal">
+                <h1 class="hero-title">Aki's AstroGallery</h1>
+                <p class="hero-subtitle">Exploring the cosmos, one exposure at a time</p>
+                <p class="hero-text">Hi, I'm Aki Bhabad, an amateur astrophotographer driven by curiosity and the pursuit of challenging endeavors. Since childhood, the night sky has captivated menow, through astrophotography, I bring that fascination to life.</p>
+                <a href="#featured" class="btn-primary">Enter Gallery</a>
+            </div>
+            <div class="scroll-indicator">
+                <span class="scroll-arrow"></span>
+            </div>
+        </section>
+
+        <!-- Featured Objects Section -->
+        <section class="section featured-section" id="featured">
+            <div class="container">
+                <h2 class="section-title reveal">Featured Captures</h2>
+                <p class="section-subtitle reveal">My flagship astrophotography shots</p>
+
+                <!-- Orion Nebula -->
+                <article class="featured-object reveal">
+                    <div class="featured-image-wrapper">
+                        <img src="/astro-static/images/m42.JPEG" alt="Orion Nebula (M42)" class="featured-image" loading="lazy">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-title">The Orion Nebula (M42)</h3>
+                        <p class="featured-description">The Orion Nebula (M42) is a massive stellar nursery about 1,344 light-years away, spanning 24 light-years across.</p>
+
+                        <div class="featured-story">
+                            <p>This was my most recent "tracked" capture in Simsbury, CT. Only a 10-minute drive from my home, the open horizon of a local farm helped immensely. The perfect new moon, along with the extremely late hours, contributed to the quality of the capture.</p>
+
+                            <p>However, the night initially started off extremely cold and partly cloudy, preventing me from polar aligning my star tracker with Polaris for the first hour. The night felt unhopefulit seemed as if I wasn't going to get lucky. Thankfully, I waited for an opportunity between two clouds to quickly align with the North Star and successfully calibrated my tracker.</p>
+
+                            <p>Even though it remained partly cloudy, especially near the horizon, looking straight up I spotted the Orion constellation. While the skies in a Bortle 4 zone (an indicator of light pollution levels) aren't ideal for stargazing, the power of trackinga device that moves with the Earth's rotation to keep the target in frame during long exposuresalong with careful post-processing, allowed me to capture this beautiful nebula. With a magnitude of 4.0 (for reference, the lower the magnitude, the more visible the object; a full moon is -12.7, and Mars is -1.29), the details of this celestial wonder came to life.</p>
+                        </div>
+
+                        <div class="metadata-card">
+                            <h4 class="metadata-title">Capture Details</h4>
+                            <div class="metadata-grid">
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Date</span>
+                                    <span class="metadata-value">December 29th, 2024</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Location</span>
+                                    <span class="metadata-value">Barn Door Hills, Simsbury, CT</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Camera</span>
+                                    <span class="metadata-value">Canon EOS 6D (20.2 MP)</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Lens</span>
+                                    <span class="metadata-value">Canon EF 28-350mm f/3.5-5.6L IS USM</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Settings</span>
+                                    <span class="metadata-value">ISO 800, f/5.6, 350mm, 30s</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Integration</span>
+                                    <span class="metadata-value">60 x 30s = 30 minutes total</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Tracker</span>
+                                    <span class="metadata-value">Sky-Watcher Star Adventurer GTi</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Processing</span>
+                                    <span class="metadata-value">DeepSkyStacker, Adobe Lightroom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Andromeda Galaxy -->
+                <article class="featured-object featured-object-reverse reveal">
+                    <div class="featured-image-wrapper">
+                        <img src="/astro-static/images/IMG_9920.JPG" alt="Andromeda Galaxy (M31)" class="featured-image" loading="lazy">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-title">The Andromeda Galaxy (M31)</h3>
+                        <p class="featured-description">The Andromeda Galaxy (M31) is a spiral galaxy located about 2.5 million light-years away, spanning an incredible 220,000 light-years across. It is the closest major galaxy to the Milky Way, predicted to collide with our galaxy in about 4.5 billion years.</p>
+
+                        <div class="featured-story">
+                            <p>Taken in my own backyard, this was the first deep sky object I captured after purchasing the Star Adventurer GTi. Surprisingly, despite only having about 15 minutes of usable (and unfortunately unfocused) exposure, this shot took many hours to complete.</p>
+
+                            <p>On a cold December Saturday night, I spent from 7 PM to midnight going back and forth between my backyard and the family roomprobably 15 times or more. It took several long, and at times frustrating, hours in below-freezing temperatures to learn how to properly calibrate and polar align my new tracker, all while trying to keep both my computer and hands warm.</p>
+
+                            <p>By the time I got everything aligned, Andromeda was already dipping below my backyard's high tree line. When I finally took a test exposure, I was surprised to see Andromeda perfectly framed between the bare branches of the winter trees. However, because everything in the sky moves, many exposures had to be tossed due to tree branches creeping into the frame. After about half an hour of shooting, I was left with just 15 minutes of usable data.</p>
+
+                            <p>At 2 AM, I uploaded the images to my computer, only to realize that all of them were slightly out of focusa tough lesson learned the hard way. Still, as my first-ever deep sky capture, I was thrilled with what I managed to produce and excited by the possibilities of what I could achieve going forward.</p>
+                        </div>
+
+                        <div class="metadata-card">
+                            <h4 class="metadata-title">Capture Details</h4>
+                            <div class="metadata-grid">
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Date</span>
+                                    <span class="metadata-value">December 26th, 2024</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Location</span>
+                                    <span class="metadata-value">Barn Door Hills, Simsbury, CT</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Camera</span>
+                                    <span class="metadata-value">Canon EOS 6D (20.2 MP)</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Lens</span>
+                                    <span class="metadata-value">Canon EF 28-350mm f/3.5-5.6L IS USM</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Settings</span>
+                                    <span class="metadata-value">ISO 1000, f/5.6, 350mm, 30s</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Integration</span>
+                                    <span class="metadata-value">30 x 30s = 15 minutes total</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Tracker</span>
+                                    <span class="metadata-value">Sky-Watcher Star Adventurer GTi</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Processing</span>
+                                    <span class="metadata-value">DeepSkyStacker, Adobe Lightroom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Milky Way -->
+                <article class="featured-object reveal">
+                    <div class="featured-image-wrapper">
+                        <img src="/astro-static/images/7.5.23MaunakeaMilkyWay-22.jpg" alt="Milky Way from Mauna Kea" class="featured-image" loading="lazy">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-title">Milky Way from Mauna Kea, Hawaii</h3>
+                        <p class="featured-description">My first-ever astrophotography experience, captured from one of the world's premier astronomical observation sites.</p>
+
+                        <div class="featured-story">
+                            <p>Taking a trip to the renowned Mauna Kea observatory with my family, this was my first ever experience with astrophotography. Being on top of a volcano in the middle of the largest ocean in the world, Mauna Kea was the #1 best star gazing I have experienced in my life.</p>
+
+                            <p>The glow of the Milky Way being visible to the naked eye, and being above the stratocumulus clouds, there is no doubt why this is a renowned observatory. Using my Canon Rebel T7 I took my first ever exposure of the stars with instructional help of a local guide. This is where I discovered the rush of capturing the night sky.</p>
+                        </div>
+
+                        <div class="metadata-card">
+                            <h4 class="metadata-title">Capture Details</h4>
+                            <div class="metadata-grid">
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Date</span>
+                                    <span class="metadata-value">July 6th, 2023</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Location</span>
+                                    <span class="metadata-value">Mauna Kea Observatory, HI</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Camera</span>
+                                    <span class="metadata-value">Canon EOS Rebel T7 DSLR</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Lens</span>
+                                    <span class="metadata-value">Canon EF 75-300mm f/4-5.6 III</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Settings</span>
+                                    <span class="metadata-value">ISO 2500, f/4, 30mm, 8s</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Integration</span>
+                                    <span class="metadata-value">Single 8s exposure</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Tracker</span>
+                                    <span class="metadata-value">None (untracked)</span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Processing</span>
+                                    <span class="metadata-value">Apple Photos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section gallery-section" id="gallery">
+            <div class="container">
+                <h2 class="section-title reveal">Gallery</h2>
+                <p class="section-subtitle reveal">Going out with a friend who has smart telescope called Vaonis Stellina</p>
+
+                <div class="gallery-grid">
+                    <!-- Lagoon Nebula -->
+                    <div class="gallery-card reveal" data-object="lagoon">
+                        <div class="gallery-image-wrapper">
+                            <img src="/astro-static/images/IMG_1218.jpg" alt="Lagoon Nebula (M8)" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="gallery-view">View Details</span>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Lagoon Nebula (M8)</h3>
+                            <span class="gallery-tag">Nebula</span>
+                        </div>
+                    </div>
+
+                    <!-- Trifid Nebula -->
+                    <div class="gallery-card reveal" data-object="trifid">
+                        <div class="gallery-image-wrapper">
+                            <img src="/astro-static/images/IMG_1219.jpg" alt="Trifid Nebula (M20)" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="gallery-view">View Details</span>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Trifid Nebula (M20)</h3>
+                            <span class="gallery-tag">Nebula</span>
+                        </div>
+                    </div>
+
+                    <!-- Pinwheel Galaxy -->
+                    <div class="gallery-card reveal" data-object="pinwheel">
+                        <div class="gallery-image-wrapper">
+                            <img src="/astro-static/images/IMG_1220.jpg" alt="Pinwheel Galaxy (M101)" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="gallery-view">View Details</span>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Pinwheel Galaxy (M101)</h3>
+                            <span class="gallery-tag">Galaxy</span>
+                        </div>
+                    </div>
+
+                    <!-- Omega Centauri -->
+                    <div class="gallery-card reveal" data-object="omega">
+                        <div class="gallery-image-wrapper">
+                            <img src="/astro-static/images/IMG_1221.jpg" alt="Omega Centauri (NGC 5139)" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="gallery-view">View Details</span>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Omega Centauri (NGC 5139)</h3>
+                            <span class="gallery-tag">Globular Cluster</span>
+                        </div>
+                    </div>
+
+                    <!-- Ring Nebula -->
+                    <div class="gallery-card reveal" data-object="ring">
+                        <div class="gallery-image-wrapper">
+                            <img src="/astro-static/images/IMG_1222.jpg" alt="Ring Nebula (M57)" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="gallery-view">View Details</span>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Ring Nebula (M57)</h3>
+                            <span class="gallery-tag">Planetary Nebula</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Behind the Scenes Section -->
+        <section class="section behind-scenes-section" id="behind-scenes">
+            <div class="container">
+                <h2 class="section-title reveal">Behind the Scenes</h2>
+                <p class="section-subtitle reveal">In the field: setup, calibration, and the pursuit of the perfect shot</p>
+
+                <div class="scenes-container">
+                    <div class="scene-card reveal">
+                        <img src="/astro-static/images/IMG_9996.jpg" alt="Calibrating Star Adventurer GTi" class="scene-image" loading="lazy">
+                        <p class="scene-caption">Calibrating my Sky-Watcher Star Adventurer GTi using polar and two-star alignment. Precision is critical for long-exposure tracking.</p>
+                    </div>
+                    
+                    <div class="scene-card reveal">
+                        <img src="/astro-static/images/IMG_99912.jpg" alt="Camera screen showing Orion exposure" class="scene-image" loading="lazy">
+                        <p class="scene-caption">Camera screen displaying one of the many 30-second exposures of the Orion Nebula during a cold December night in Simsbury, CT.</p>
+                    </div>
+
+                    <div class="scene-card reveal">
+                        <img src="/astro-static/images/IMG_9894.jpg" alt="Polar aligning the tracker" class="scene-image" loading="lazy">
+                        <p class="scene-caption">Polar aligning the tracker in my backyard during my first deep-sky session. Photo credit: my brother.</p>
+                    </div>
+
+                    <div class="scene-card reveal">
+                        <img src="/astro-static/images/IMG_9898.jpeg" alt="Single raw exposure of M31" class="scene-image" loading="lazy">
+                        <p class="scene-caption">A single raw 30-second exposure of Andromeda (M31) before stacking and processingshowing the raw potential hidden in each frame.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gear & Workflow Section -->
+        <section class="section gear-section" id="gear">
+            <div class="container">
+                <h2 class="section-title reveal">Gear & Workflow</h2>
+                <p class="section-subtitle reveal">The equipment and process behind the captures</p>
+
+                <div class="gear-grid">
+                    <div class="gear-card reveal">
+                        <h3 class="gear-category">Cameras</h3>
+                        <ul class="gear-list">
+                            <li>Canon EOS 6D Full-Frame DSLR (20.2 MP, DIGIC 5+ processor)</li>
+                            <li>Canon EOS Rebel T7 DSLR</li>
+                        </ul>
+                    </div>
+
+                    <div class="gear-card reveal">
+                        <h3 class="gear-category">Lenses</h3>
+                        <ul class="gear-list">
+                            <li>Canon EF 28-350mm f/3.5-5.6L IS USM Telephoto Zoom</li>
+                            <li>Canon EF 75-300mm f/4-5.6 III Telephoto Zoom</li>
+                        </ul>
+                    </div>
+
+                    <div class="gear-card reveal">
+                        <h3 class="gear-category">Tracking</h3>
+                        <ul class="gear-list">
+                            <li>Sky-Watcher Star Adventurer GTi Equatorial Tracking Mount</li>
+                        </ul>
+                    </div>
+
+                    <div class="gear-card reveal">
+                        <h3 class="gear-category">Smart Telescope</h3>
+                        <ul class="gear-list">
+                            <li>Vaonis Stellina (borrowed)</li>
+                        </ul>
+                    </div>
+
+                    <div class="gear-card reveal">
+                        <h3 class="gear-category">Software</h3>
+                        <ul class="gear-list">
+                            <li>DeepSkyStacker (image stacking)</li>
+                            <li>Adobe Lightroom (post-processing)</li>
+                            <li>Apple Photos (basic editing)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="workflow-section reveal">
+                    <h3 class="workflow-title">My Workflow</h3>
+                    <p class="workflow-text">Each deep-sky capture follows a meticulous process: I start by polar aligning my Star Adventurer GTi tracker using both polar and two-star alignment for precision. Once calibrated, I take dozens of long exposures (typically 30 seconds each) over the course of 15-30 minutes or more, depending on conditions. These "light frames" are then brought into DeepSkyStacker, where they're aligned and combined to reduce noise and enhance faint details. Finally, I use Adobe Lightroom for careful post-processingadjusting contrast, clarity, color balance, and noise reductionto bring out the intricate structures and colors hidden in the raw data. It's a process that requires patience, precision, and a willingness to learn from each session.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about-section" id="about">
+            <div class="container-narrow">
+                <h2 class="section-title reveal">About</h2>
+                <div class="about-content reveal">
+                    <p>Hi, I'm Aki Bhabad, an 19-year-old amateur astrophotographer and a curious college freshman. Since I was a kid, I've always been fascinated by the night sky, and now, through astrophotography, I can pursue this fascination.</p>
+
+                    <p>What draws me to astrophotography isn't just the beauty of the cosmos it's the challenge. Each capture requires planning, precision, patience, and often involves long, cold nights troubleshooting equipment in the dark. It's the kind of hard problem that forces you to learn constantly, adapt quickly, and persist even when conditions aren't ideal.</p>
+
+                    <p>I shoot primarily from Connecticut often from my own backyard or nearby farms working within the limitations of a Bortle 4 zone and unpredictable New England weather. With my Canon EOS 6D, telephoto lenses, and Sky-Watcher Star Adventurer GTi tracker, I've been able to capture nebulae, galaxies, and wide-field Milky Way shots that reveal details invisible to the naked eye.</p>
+
+                    <p>This gallery represents where I am now, but there's so much more I want to explore and capture. Each session teaches me something new, and every image is a step forward in understanding both the night sky and the craft of astrophotography.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Aki Bhabad &copy; 2024-2025 | Astrophotography Portfolio</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="modal" id="lightbox">
+        <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+        <div class="modal-content">
+            <div class="modal-image-wrapper">
+                <img src="" alt="" class="modal-image" id="modalImage">
+            </div>
+            <div class="modal-info">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-metadata" id="modalMetadata"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+</body>
+</html>
