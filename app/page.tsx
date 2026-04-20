@@ -73,6 +73,23 @@ export default function HomePage() {
             {label} →
           </Link>
         ))}
+        <a
+          href="https://www.celestiasolutions.cloud/"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            fontFamily: 'system-ui, sans-serif',
+            fontSize: '0.875rem',
+            color: '#7c5cbf',
+            border: '1px solid rgba(124, 92, 191, 0.25)',
+            padding: '0.45rem 1rem',
+            borderRadius: '5px',
+            display: 'inline-block',
+            letterSpacing: '0.01em',
+          }}
+        >
+          Celestia Solutions →
+        </a>
       </div>
 
       <div style={{
