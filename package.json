@@ -8,13 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/three": "^0.168.0",
     "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
     "next": "14.2.5",
     "next-mdx-remote": "^6.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "reading-time": "^1.5.0"
+    "reading-time": "^1.5.0",
+    "three": "^0.168.0"
   },
   "devDependencies": {
     "@types/node": "^20",

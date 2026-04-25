@@ -27,10 +27,10 @@ export default function Nav() {
       left: 0,
       right: 0,
       zIndex: 50,
-      borderBottom: '1px solid #1c1c26',
-      backgroundColor: 'rgba(12, 12, 16, 0.9)',
-      backdropFilter: 'blur(8px)',
-      WebkitBackdropFilter: 'blur(8px)',
+      borderBottom: '1px solid rgba(157, 127, 224, 0.14)',
+      backgroundColor: 'rgba(8, 6, 18, 0.55)',
+      backdropFilter: 'blur(14px) saturate(140%)',
+      WebkitBackdropFilter: 'blur(14px) saturate(140%)',
     }}>
       <div style={{
         maxWidth: '1100px',
