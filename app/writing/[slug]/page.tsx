@@ -41,8 +41,8 @@ export default async function ArticlePage({ params }: { params: { slug: string }
   if (!fs.existsSync(fp)) {
     return (
       <div style={{ maxWidth: '680px', margin: '0 auto', padding: '7rem 1.5rem 6rem' }}>
-        <p style={{ fontFamily: 'Georgia, serif', color: '#5e5e78' }}>Article not found.</p>
-        <Link href="/writing" style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.875rem', color: '#7c5cbf' }}>
+        <p style={{ fontFamily: 'Georgia, serif', color: '#7a7a7a' }}>Article not found.</p>
+        <Link href="/writing" style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.875rem', color: '#f2f2f2' }}>
           ← Writing
         </Link>
       </div>
@@ -62,7 +62,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           <Link href="/writing" style={{
             fontFamily: 'system-ui, sans-serif',
             fontSize: '0.8125rem',
-            color: '#4a4a62',
+            color: '#5c5c5c',
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.25rem',
@@ -80,8 +80,8 @@ export default async function ArticlePage({ params }: { params: { slug: string }
                 fontSize: '0.65rem',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
-                color: '#7c5cbf',
-                border: '1px solid rgba(124, 92, 191, 0.25)',
+                color: '#f2f2f2',
+                border: '1px solid rgba(255, 255, 255, 0.188)',
                 padding: '0.1rem 0.45rem',
                 borderRadius: '3px',
               }}>
@@ -96,7 +96,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           fontFamily: 'Georgia, serif',
           fontSize: 'clamp(1.5rem, 3.5vw, 2rem)',
           fontWeight: 'normal',
-          color: '#dddae8',
+          color: '#ececec',
           lineHeight: 1.25,
           letterSpacing: '-0.01em',
           marginBottom: fm.dek ? '1rem' : '1.5rem',
@@ -109,7 +109,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           <p style={{
             fontFamily: 'Georgia, serif',
             fontSize: '1.0625rem',
-            color: '#7a7692',
+            color: '#8a8a8a',
             fontStyle: 'italic',
             lineHeight: 1.65,
             marginBottom: '1.5rem',
@@ -127,20 +127,20 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           gap: '0.75rem',
           paddingTop: '1rem',
           paddingBottom: '1rem',
-          borderTop: '1px solid #1c1c26',
-          borderBottom: '1px solid #1c1c26',
+          borderTop: '1px solid #1f1f1f',
+          borderBottom: '1px solid #1f1f1f',
           marginBottom: '2.5rem',
         }}>
           <div style={{
             fontFamily: 'system-ui, sans-serif',
             fontSize: '0.8rem',
-            color: '#4a4a62',
+            color: '#5c5c5c',
             display: 'flex',
             flexWrap: 'wrap',
             gap: '0.5rem',
             alignItems: 'center',
           }}>
-            {fm.author && <span style={{ color: '#8a8699' }}>{fm.author}</span>}
+            {fm.author && <span style={{ color: '#8f8f8f' }}>{fm.author}</span>}
             {fm.author && fm.institution && <span>·</span>}
             {fm.institution && <span>{fm.institution}</span>}
             {fm.date && <><span>·</span><span>{fm.date}</span></>}
@@ -151,8 +151,8 @@ export default async function ArticlePage({ params }: { params: { slug: string }
             <a href={fm.pdf} download style={{
               fontFamily: 'system-ui, sans-serif',
               fontSize: '0.78rem',
-              color: '#7c5cbf',
-              border: '1px solid rgba(124, 92, 191, 0.3)',
+              color: '#f2f2f2',
+              border: '1px solid rgba(255, 255, 255, 0.225)',
               padding: '0.3rem 0.75rem',
               borderRadius: '4px',
               display: 'inline-flex',
@@ -168,7 +168,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
         {/* Abstract */}
         {fm.summary && (
           <div style={{
-            borderLeft: '2px solid rgba(124, 92, 191, 0.5)',
+            borderLeft: '2px solid rgba(255, 255, 255, 0.375)',
             paddingLeft: '1.25rem',
             marginBottom: '2.5rem',
           }}>
@@ -177,7 +177,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
               fontSize: '0.7rem',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color: '#7c5cbf',
+              color: '#f2f2f2',
               marginBottom: '0.5rem',
             }}>
               Abstract
@@ -185,7 +185,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
             <p style={{
               fontFamily: 'Georgia, serif',
               fontSize: '0.9375rem',
-              color: '#8a8699',
+              color: '#8f8f8f',
               lineHeight: 1.75,
               fontStyle: 'italic',
             }}>
@@ -204,16 +204,16 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           <div style={{
             marginTop: '4rem',
             paddingTop: '2rem',
-            borderTop: '1px solid #1c1c26',
+            borderTop: '1px solid #1f1f1f',
           }}>
-            <p style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.8rem', color: '#4a4a62', marginBottom: '0.75rem' }}>
+            <p style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.8rem', color: '#5c5c5c', marginBottom: '0.75rem' }}>
               This paper is also available as a PDF.
             </p>
             <a href={fm.pdf} download style={{
               fontFamily: 'system-ui, sans-serif',
               fontSize: '0.8125rem',
-              color: '#7c5cbf',
-              border: '1px solid rgba(124, 92, 191, 0.3)',
+              color: '#f2f2f2',
+              border: '1px solid rgba(255, 255, 255, 0.225)',
               padding: '0.4rem 1rem',
               borderRadius: '4px',
               display: 'inline-flex',
@@ -230,7 +230,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           <Link href="/writing" style={{
             fontFamily: 'system-ui, sans-serif',
             fontSize: '0.8125rem',
-            color: '#4a4a62',
+            color: '#5c5c5c',
           }}>
             ← All writing
           </Link>

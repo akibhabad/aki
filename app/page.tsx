@@ -48,7 +48,7 @@ export default function HomePage() {
           <p style={{
             fontFamily: 'system-ui, sans-serif',
             fontSize: '1rem',
-            color: '#5e5e78',
+            color: '#7a7a7a',
             marginBottom: 0,
             lineHeight: 1.6,
           }}>
@@ -65,7 +65,7 @@ export default function HomePage() {
       <p style={{
         fontFamily: 'Georgia, serif',
         fontSize: '0.9375rem',
-        color: '#7a7692',
+        color: '#8a8a8a',
         lineHeight: 1.75,
         marginBottom: '3.5rem',
         maxWidth: '460px',
@@ -78,8 +78,8 @@ export default function HomePage() {
           <Link key={href} href={href} style={{
             fontFamily: 'system-ui, sans-serif',
             fontSize: '0.875rem',
-            color: '#7c5cbf',
-            border: '1px solid rgba(124, 92, 191, 0.25)',
+            color: '#f2f2f2',
+            border: '1px solid rgba(255, 255, 255, 0.188)',
             padding: '0.45rem 1rem',
             borderRadius: '5px',
             display: 'inline-block',
@@ -93,7 +93,7 @@ export default function HomePage() {
       <div style={{
         marginTop: '3.25rem',
         paddingTop: '1.25rem',
-        borderTop: '1px solid rgba(124, 92, 191, 0.12)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.09)',
         display: 'flex',
         alignItems: 'center',
         gap: '0.9rem',
@@ -104,7 +104,7 @@ export default function HomePage() {
           fontSize: '0.72rem',
           letterSpacing: '0.12em',
           textTransform: 'uppercase',
-          color: '#4a4a62',
+          color: '#5c5c5c',
         }}>
           Elsewhere
         </span>
@@ -121,9 +121,9 @@ export default function HomePage() {
               gap: '0.45rem',
               fontFamily: 'system-ui, sans-serif',
               fontSize: '0.84rem',
-              color: '#c9c4dc',
+              color: '#cfcfcf',
               padding: '0.32rem 0.05rem',
-              borderBottom: '1px solid rgba(124, 92, 191, 0.18)',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.135)',
               transition: 'color 0.15s ease, border-color 0.15s ease, transform 0.15s ease',
             }}
             aria-label={`${label} profile`}
@@ -146,7 +146,7 @@ export default function HomePage() {
                 <span>{label}</span>
               </>
             )}
-            <span aria-hidden="true" style={{ fontSize: '0.72rem', color: '#7c5cbf' }}>↗</span>
+            <span aria-hidden="true" style={{ fontSize: '0.72rem', color: '#f2f2f2' }}>↗</span>
           </a>
         ))}
       </div>

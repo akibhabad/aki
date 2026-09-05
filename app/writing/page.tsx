@@ -50,7 +50,7 @@ export default function WritingPage() {
         fontSize: '0.7rem',
         letterSpacing: '0.12em',
         textTransform: 'uppercase',
-        color: '#7c5cbf',
+        color: '#f2f2f2',
         marginBottom: '1.5rem',
       }}>
         Writing
@@ -60,14 +60,14 @@ export default function WritingPage() {
         fontFamily: 'Georgia, serif',
         fontSize: '1.75rem',
         fontWeight: 'normal',
-        color: '#dddae8',
+        color: '#ececec',
         marginBottom: '3rem',
       }}>
         Essays &amp; Research
       </h1>
 
       {articles.length === 0 ? (
-        <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.9375rem', color: '#5e5e78' }}>
+        <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.9375rem', color: '#7a7a7a' }}>
           No articles yet.
         </p>
       ) : (
@@ -79,7 +79,7 @@ export default function WritingPage() {
               style={{
                 display: 'block',
                 padding: '1.75rem 0',
-                borderBottom: '1px solid #1c1c26',
+                borderBottom: '1px solid #1f1f1f',
               }}
             >
               {article.tags && article.tags.length > 0 && (
@@ -90,8 +90,8 @@ export default function WritingPage() {
                       fontSize: '0.65rem',
                       letterSpacing: '0.08em',
                       textTransform: 'uppercase',
-                      color: '#7c5cbf',
-                      border: '1px solid rgba(124, 92, 191, 0.25)',
+                      color: '#f2f2f2',
+                      border: '1px solid rgba(255, 255, 255, 0.188)',
                       padding: '0.1rem 0.45rem',
                       borderRadius: '3px',
                     }}>
@@ -105,7 +105,7 @@ export default function WritingPage() {
                 fontFamily: 'Georgia, serif',
                 fontSize: '1.125rem',
                 fontWeight: 'normal',
-                color: '#dddae8',
+                color: '#ececec',
                 marginBottom: article.dek ? '0.5rem' : '0.75rem',
                 lineHeight: 1.35,
               }}>
@@ -116,7 +116,7 @@ export default function WritingPage() {
                 <p style={{
                   fontFamily: 'Georgia, serif',
                   fontSize: '0.9rem',
-                  color: '#7a7692',
+                  color: '#8a8a8a',
                   fontStyle: 'italic',
                   marginBottom: '0.75rem',
                   lineHeight: 1.6,
@@ -128,7 +128,7 @@ export default function WritingPage() {
               <div style={{
                 fontFamily: 'system-ui, sans-serif',
                 fontSize: '0.78rem',
-                color: '#3e3e54',
+                color: '#474747',
                 display: 'flex',
                 gap: '0.75rem',
               }}>

@@ -29,6 +29,12 @@ export default function AnimatedName() {
           animation: nameIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards,
                      subtleFloat 6s ease-in-out 1s infinite;
         }
+        .name-word-grad {
+          background: linear-gradient(135deg, #ffffff 0%, #bdbdbd 45%, #5a5a5a 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
         .name-word:nth-child(2).visible {
           animation-delay: 0.18s, 1.18s;
         }
@@ -38,14 +44,14 @@ export default function AnimatedName() {
         fontFamily: 'Georgia, serif',
         fontSize: 'clamp(2rem, 6vw, 3.25rem)',
         fontWeight: 'normal',
-        color: '#dddae8',
+        color: '#ececec',
         marginBottom: '1.5rem',
         letterSpacing: '-0.02em',
         lineHeight: 1.1,
       }}>
         <span className={`name-word${visible ? ' visible' : ''}`}>Aki</span>
         {' '}
-        <span className={`name-word${visible ? ' visible' : ''}`} style={{ color: '#9d7fe0' }}>Bhabad</span>
+        <span className={`name-word name-word-grad${visible ? ' visible' : ''}`}>Bhabad</span>
       </h1>
     </>
   )

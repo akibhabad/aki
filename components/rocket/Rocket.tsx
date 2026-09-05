@@ -5,7 +5,7 @@ import * as THREE from 'three'
 
 /* ─────────────────────────────────────────────────────────────
    Artemis / SLS Block 1, built from primitives and shaded
-   entirely in the site's purple range. Hover (or tap) pulls the
+   in monochrome greys. Hover (or tap) pulls the
    stack apart into an exploded view; drag to orbit.
    All dimensions are metres × 0.1.
    ───────────────────────────────────────────────────────────── */
@@ -14,17 +14,17 @@ const S = 0.1
 const SEG = 64
 
 const PAL = {
-  core:     0x6a4fb0,   // brand purple, the orange core stage
-  coreDark: 0x4a367f,
-  srb:      0xb9addc,   // pale lavender, the white boosters
-  srbBand:  0x7c5cbf,
-  icps:     0x9d85d1,
-  lvsa:     0x8168c0,
-  orion:    0xa08ccf,
-  crew:     0x3d2f66,
-  las:      0xc8bde8,
-  engine:   0x2a2140,
-  engineLip:0x8f7ad8,
+  core:     0x7c7c7c,   // the orange core stage, now mid grey
+  coreDark: 0x353535,
+  srb:      0xdadada,   // white boosters
+  srbBand:  0x8c8c8c,
+  icps:     0xbfbfbf,
+  lvsa:     0x9c9c9c,
+  orion:    0xb4b4b4,
+  crew:     0x2c2c2c,
+  las:      0xe4e4e4,
+  engine:   0x1c1c1c,
+  engineLip:0x9e9e9e,
 }
 
 function mat(color: number, opts: Partial<THREE.MeshStandardMaterialParameters> = {}) {
@@ -38,9 +38,9 @@ function mat(color: number, opts: Partial<THREE.MeshStandardMaterialParameters> 
 const engineMat = () => mat(PAL.engine, { roughness: 0.32, metalness: 0.85 })
 
 const edgeMat = new THREE.LineBasicMaterial({
-  color: 0xc4b3ff,
+  color: 0xffffff,
   transparent: true,
-  opacity: 0.22,
+  opacity: 0.16,
   depthWrite: false,
 })
 
@@ -218,15 +218,15 @@ export default function Rocket({ className, style }: { className?: string; style
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100)
 
-    /* lights: lavender key, purple rim, faint violet fill */
-    scene.add(new THREE.AmbientLight(0x3a2c66, 1.6))
-    const key = new THREE.DirectionalLight(0xe6dcff, 3.0)
+    /* lights: white key, grey rim, faint fill */
+    scene.add(new THREE.AmbientLight(0x3c3c3c, 1.6))
+    const key = new THREE.DirectionalLight(0xffffff, 3.0)
     key.position.set(-4, 8, 6)
     scene.add(key)
-    const rim = new THREE.DirectionalLight(0x7c5cbf, 4.0)
+    const rim = new THREE.DirectionalLight(0xbdbdbd, 4.0)
     rim.position.set(6, 3, -5)
     scene.add(rim)
-    const fill = new THREE.DirectionalLight(0x5a3fa0, 0.9)
+    const fill = new THREE.DirectionalLight(0x555555, 0.9)
     fill.position.set(3, -6, 4)
     scene.add(fill)
 

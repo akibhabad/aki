@@ -18,11 +18,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main style={{ flex: 1 }}>{children}</main>
         <footer style={{
-          borderTop: '1px solid #1c1c26',
+          borderTop: '1px solid #1f1f1f',
           padding: '2rem 1.5rem',
           textAlign: 'center',
           fontSize: '0.8rem',
-          color: '#3a3a50',
+          color: '#444444',
           fontFamily: 'system-ui, sans-serif',
         }}>
           © {new Date().getFullYear()} Aki Bhabad

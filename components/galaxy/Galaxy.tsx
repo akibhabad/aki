@@ -5,18 +5,18 @@ import * as THREE from 'three'
 
 /* ─────────────────────────────────────────────────────────────
    Palette — every colour here is a shade of the site purple
-   (#7c5cbf) pushed lighter / darker / more saturated.
+   (#f2f2f2) pushed lighter / darker / more saturated.
    Values are linear-ish RGB in 0..1.
    ───────────────────────────────────────────────────────────── */
 const C = {
-  coreWhite:  [0.93, 0.85, 1.00],  // hot centre, lavender-white
-  bulge:      [0.86, 0.74, 1.00],  // pale lilac
-  inner:      [0.72, 0.56, 0.98],  // #b78ffa
-  arm:        [0.49, 0.36, 0.78],  // #7c5cbf (the brand purple)
-  outer:      [0.24, 0.16, 0.48],  // #3d2a7a deep violet
-  youngStar:  [0.82, 0.74, 1.00],  // bright pale, young cluster
-  nebula:     [0.80, 0.42, 1.00],  // magenta-leaning emission knot
-  farStar:    [0.55, 0.50, 0.78],
+  coreWhite:  [1.00, 1.00, 1.00],  // hot centre
+  bulge:      [0.90, 0.90, 0.90],
+  inner:      [0.78, 0.78, 0.78],
+  arm:        [0.56, 0.56, 0.56],
+  outer:      [0.28, 0.28, 0.28],
+  youngStar:  [0.96, 0.96, 0.96],  // bright young cluster
+  nebula:     [0.72, 0.72, 0.72],  // soft knot
+  farStar:    [0.62, 0.62, 0.62],
 }
 
 /* Deterministic PRNG so the galaxy is identical on every load */
@@ -299,7 +299,7 @@ const dustFrag = /* glsl */ `
     float d2 = dot(uv, uv) * 4.0;
     if (d2 > 1.0) discard;
     float a = exp(-d2 * 2.6) * (1.0 - d2) * vAlpha;
-    gl_FragColor = vec4(vec3(0.03, 0.02, 0.06), a);
+    gl_FragColor = vec4(vec3(0.02, 0.02, 0.02), a);
   }
 `
 
@@ -354,8 +354,8 @@ const hazeFrag = /* glsl */ `
     ridge = pow(ridge, 2.0);
     float disk = exp(-r * 3.2) * 0.55 + exp(-r * 1.3) * 0.18;
     float a = disk * (0.55 + 0.45 * ridge) * (1.0 - smoothstep(0.7, 1.0, r));
-    vec3 inner = vec3(0.72, 0.56, 0.98);
-    vec3 outer = vec3(0.30, 0.20, 0.58);
+    vec3 inner = vec3(0.80, 0.80, 0.80);
+    vec3 outer = vec3(0.34, 0.34, 0.34);
     vec3 col = mix(inner, outer, smoothstep(0.05, 0.7, r));
     gl_FragColor = vec4(col * a * 1.1, a * 1.1);
   }
@@ -463,10 +463,10 @@ export default function Galaxy({ className, style }: { className?: string; style
     glowCanvas.width = glowCanvas.height = 256
     const gctx = glowCanvas.getContext('2d')!
     const grad = gctx.createRadialGradient(128, 128, 0, 128, 128, 128)
-    grad.addColorStop(0.0, 'rgba(226,208,255,0.7)')
-    grad.addColorStop(0.10, 'rgba(196,166,255,0.5)')
-    grad.addColorStop(0.35, 'rgba(140,100,220,0.2)')
-    grad.addColorStop(1.0, 'rgba(90,60,160,0)')
+    grad.addColorStop(0.0, 'rgba(245,245,245,0.7)')
+    grad.addColorStop(0.10, 'rgba(205,205,205,0.5)')
+    grad.addColorStop(0.35, 'rgba(150,150,150,0.2)')
+    grad.addColorStop(1.0, 'rgba(80,80,80,0)')
     gctx.fillStyle = grad
     gctx.fillRect(0, 0, 256, 256)
     const glowTex = new THREE.CanvasTexture(glowCanvas)

@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0c0c10;
-  --surface: #111116;
-  --border: #1c1c26;
-  --text: #dddae8;
-  --muted: #5e5e78;
-  --purple: #7c5cbf;
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --border: #1f1f1f;
+  --text: #ececec;
+  --muted: #7a7a7a;
+  --accent: #f2f2f2;
 }
 
 * {
@@ -28,7 +28,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 92, 191, 0.25);
+  background: rgba(255, 255, 255, 0.188);
 }
 
 ::-webkit-scrollbar {
@@ -38,7 +38,7 @@ body {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a38;
+  background: #2e2e2e;
   border-radius: 3px;
 }
 
@@ -53,14 +53,14 @@ a {
   font-family: 'Georgia', serif;
   font-size: 1rem;
   line-height: 1.85;
-  color: #c8c5da;
+  color: #cfcfcf;
 }
 
 .article-body h2 {
   font-family: 'Georgia', serif;
   font-size: 1.25rem;
   font-weight: normal;
-  color: #dddae8;
+  color: #ececec;
   margin-top: 3rem;
   margin-bottom: 0.875rem;
   letter-spacing: 0;
@@ -73,7 +73,7 @@ a {
   font-size: 1.05rem;
   font-weight: normal;
   font-style: italic;
-  color: #c4c0d8;
+  color: #cfcfcf;
   margin-top: 2rem;
   margin-bottom: 0.625rem;
 }
@@ -83,20 +83,20 @@ a {
 }
 
 .article-body strong {
-  color: #dddae8;
+  color: #ececec;
   font-weight: 600;
 }
 
 .article-body em {
   font-style: italic;
-  color: #b0adc8;
+  color: #bdbdbd;
 }
 
 .article-body blockquote {
-  border-left: 2px solid var(--purple);
+  border-left: 2px solid var(--accent);
   padding-left: 1.125rem;
   margin: 1.75rem 0;
-  color: #8e8aaa;
+  color: #8f8f8f;
   font-style: italic;
 }
 
@@ -119,13 +119,13 @@ a {
 }
 
 .article-body a {
-  color: var(--purple);
-  border-bottom: 1px solid rgba(124, 92, 191, 0.3);
+  color: var(--accent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.225);
   transition: border-color 0.15s;
 }
 
 .article-body a:hover {
-  border-color: var(--purple);
+  border-color: var(--accent);
 }
 
 .article-body figure {
@@ -147,7 +147,7 @@ a {
   justify-content: center;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #0a0a0f;
+  background: #080808;
   overflow: hidden;
 }
 
@@ -157,7 +157,7 @@ a {
   height: auto;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #0a0a0f;
+  background: #080808;
 }
 
 .article-body .article-image-pair img {

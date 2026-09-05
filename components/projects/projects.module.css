@@ -8,7 +8,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top center, rgba(124, 92, 191, 0.12), transparent 35%),
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.09), transparent 35%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
   pointer-events: none;
 }
@@ -30,7 +30,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--purple);
+  color: var(--accent);
   margin-bottom: 1.25rem;
 }
 
@@ -48,7 +48,7 @@
   max-width: 34rem;
   font-size: 0.98rem;
   line-height: 1.8;
-  color: #8e8aa5;
+  color: #8f8f8f;
 }
 
 .timeline {
@@ -64,10 +64,10 @@
   width: 1px;
   background: linear-gradient(
     180deg,
-    rgba(124, 92, 191, 0.1),
-    rgba(124, 92, 191, 0.28) 15%,
-    rgba(124, 92, 191, 0.14) 55%,
-    rgba(124, 92, 191, 0.05)
+    rgba(255, 255, 255, 0.075),
+    rgba(255, 255, 255, 0.21) 15%,
+    rgba(255, 255, 255, 0.105) 55%,
+    rgba(255, 255, 255, 0.038)
   );
 }
 
@@ -89,7 +89,7 @@
   font-size: 0.74rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6e6986;
+  color: #777777;
   white-space: nowrap;
 }
 
@@ -106,10 +106,10 @@
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 999px;
-  border: 1px solid rgba(124, 92, 191, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.285);
   background:
-    radial-gradient(circle, rgba(124, 92, 191, 0.46), rgba(124, 92, 191, 0.14));
-  box-shadow: 0 0 0 0 rgba(124, 92, 191, 0.22);
+    radial-gradient(circle, rgba(255, 255, 255, 0.345), rgba(255, 255, 255, 0.105));
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.165);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -119,10 +119,10 @@
 
 .marker[data-active='true'] {
   transform: scale(1.08);
-  border-color: rgba(124, 92, 191, 0.75);
+  border-color: rgba(255, 255, 255, 0.562);
   background:
-    radial-gradient(circle, rgba(172, 147, 238, 0.9), rgba(124, 92, 191, 0.26));
-  box-shadow: 0 0 0 0.5rem rgba(124, 92, 191, 0.08);
+    radial-gradient(circle, rgba(225, 225, 225, 0.9), rgba(255, 255, 255, 0.195));
+  box-shadow: 0 0 0 0.5rem rgba(255, 255, 255, 0.06);
 }
 
 .entry {
@@ -181,7 +181,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #7f7a96;
+  color: #8a8a8a;
 }
 
 .copyGroup {
@@ -190,7 +190,7 @@
 }
 
 .bodyCopy {
-  color: #c4c0d8;
+  color: #cfcfcf;
   font-size: 0.97rem;
   line-height: 1.82;
   max-width: 40rem;
@@ -207,7 +207,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #7f7a96;
+  color: #8a8a8a;
   margin-bottom: 0.8rem;
 }
 
@@ -222,9 +222,9 @@
   font-family: system-ui, sans-serif;
   font-size: 0.74rem;
   letter-spacing: 0.01em;
-  color: #a39ec0;
+  color: #bdbdbd;
   padding: 0.35rem 0.62rem;
-  border: 1px solid rgba(124, 92, 191, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.135);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.015);
 }
@@ -239,12 +239,12 @@
 .projectLink {
   font-family: system-ui, sans-serif;
   font-size: 0.8rem;
-  color: var(--purple);
-  border-bottom: 1px solid rgba(124, 92, 191, 0.2);
+  color: var(--accent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .projectLink:hover {
-  border-bottom-color: rgba(124, 92, 191, 0.55);
+  border-bottom-color: rgba(255, 255, 255, 0.413);
 }
 
 .endCap {
@@ -260,7 +260,7 @@
   top: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(124, 92, 191, 0.16), rgba(124, 92, 191, 0));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
 }
 
 .endCapMarker {
@@ -270,8 +270,8 @@
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 999px;
-  border: 1px solid rgba(124, 92, 191, 0.24);
-  background: rgba(124, 92, 191, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .timelineItem:hover .entry {
@@ -280,7 +280,7 @@
 }
 
 .timelineItem:hover .marker {
-  border-color: rgba(124, 92, 191, 0.58);
+  border-color: rgba(255, 255, 255, 0.435);
 }
 
 @media (max-width: 900px) {
@@ -321,7 +321,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: #7f7a96;
+    color: #8a8a8a;
     margin-bottom: 0.7rem;
   }
 

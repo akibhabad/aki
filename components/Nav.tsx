@@ -27,8 +27,8 @@ export default function Nav() {
       left: 0,
       right: 0,
       zIndex: 50,
-      borderBottom: '1px solid #1c1c26',
-      backgroundColor: 'rgba(12, 12, 16, 0.9)',
+      borderBottom: '1px solid #1f1f1f',
+      backgroundColor: 'rgba(10, 10, 10, 0.9)',
       backdropFilter: 'blur(8px)',
       WebkitBackdropFilter: 'blur(8px)',
     }}>
@@ -44,7 +44,7 @@ export default function Nav() {
         <Link href="/" style={{
           fontFamily: 'Georgia, serif',
           fontSize: '0.9375rem',
-          color: '#dddae8',
+          color: '#ececec',
           flexShrink: 0,
         }}>
           Aki Bhabad
@@ -66,7 +66,7 @@ export default function Nav() {
                 style={{
                   fontFamily: 'system-ui, sans-serif',
                   fontSize: '0.8125rem',
-                  color: active ? '#b0a8d0' : '#4a4a62',
+                  color: active ? '#bdbdbd' : '#5c5c5c',
                   padding: '0.3rem 0.6rem',
                   borderRadius: '4px',
                   whiteSpace: 'nowrap',

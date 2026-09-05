@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'cosmic-bg': '#0a0a0f',
-        'cosmic-surface': '#111118',
-        'cosmic-border': '#1e1e2e',
-        'cosmic-text': '#e8e6f0',
-        'cosmic-muted': '#6b6b8a',
-        'cosmic-purple': '#8b5cf6',
-        'cosmic-purple-dim': '#5b3d9e',
+        'cosmic-bg': '#080808',
+        'cosmic-surface': '#111111',
+        'cosmic-border': '#1f1f1f',
+        'cosmic-text': '#ececec',
+        'cosmic-muted': '#7a7a7a',
+        'cosmic-purple': '#f2f2f2',
+        'cosmic-purple-dim': '#9a9a9a',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -27,34 +27,34 @@ const config: Config = {
       typography: {
         DEFAULT: {
           css: {
-            color: '#d1cfe8',
+            color: '#cfcfcf',
             a: {
-              color: '#8b5cf6',
+              color: '#f2f2f2',
               '&:hover': {
-                color: '#a78bfa',
+                color: '#ffffff',
               },
             },
             h1: {
-              color: '#e8e6f0',
+              color: '#ececec',
             },
             h2: {
-              color: '#e8e6f0',
+              color: '#ececec',
             },
             h3: {
-              color: '#e8e6f0',
+              color: '#ececec',
             },
             strong: {
-              color: '#e8e6f0',
+              color: '#ececec',
             },
             blockquote: {
-              borderLeftColor: '#8b5cf6',
-              color: '#9d96c4',
+              borderLeftColor: '#f2f2f2',
+              color: '#8f8f8f',
             },
             code: {
-              color: '#a78bfa',
+              color: '#ffffff',
             },
             hr: {
-              borderColor: '#1e1e2e',
+              borderColor: '#1f1f1f',
             },
           },
         },
