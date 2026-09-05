@@ -7,9 +7,8 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/writing', label: 'Writing' },
   { href: '/projects', label: 'Projects' },
-  { href: '/curiosities', label: 'Curiosities' },
   { href: '/library', label: 'Library' },
-  { href: '/astro', label: 'Astro' },
+  { href: '/astro', label: 'Astrophotography' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]

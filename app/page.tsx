@@ -10,28 +10,38 @@ export const metadata: Metadata = {
 }
 
 const sections = [
-  { href: '/writing',  label: 'Some of my writing'  },
-  { href: '/projects', label: 'Some of my projects' },
-  { href: '/astro',    label: 'My Astro'            },
+  { href: '/writing',  label: 'Writing'          },
+  { href: '/projects', label: 'Projects'         },
+  { href: '/astro',    label: 'Astrophotography' },
 ]
 
-const externalLinks = [
-  { href: 'https://x.com/_bhab', label: 'X' },
-  { href: 'https://www.linkedin.com/in/aki-bhabad/', label: 'LinkedIn' },
+const EMAIL = 'akibhabad7@gmail.com'
+
+const socials = [
+  { href: 'https://x.com/_bhab',              label: 'X',         handle: '@_bhab'   },
+  { href: 'https://www.instagram.com/gpt.aki', label: 'Instagram', handle: '@gpt.aki' },
 ]
 
-function LinkedInIcon() {
+function InstagramIcon() {
   return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      width="15"
-      height="15"
-      fill="currentColor"
-    >
-      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2 2 0 1 0 5.3 7 2 2 0 0 0 5.25 3ZM20.44 12.44c0-3.08-1.64-4.51-3.84-4.51a3.33 3.33 0 0 0-3 1.64V8.5h-3.37c.04.71 0 11.5 0 11.5h3.37v-6.42c0-.34.02-.68.12-.92.27-.68.87-1.39 1.88-1.39 1.33 0 1.87 1.05 1.87 2.58V20H21s.04-6.33.04-7.56Z" />
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
     </svg>
   )
+}
+
+const linkStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '0.45rem',
+  fontFamily: 'system-ui, sans-serif',
+  fontSize: '0.84rem',
+  color: '#cfcfcf',
+  padding: '0.3rem 0.05rem',
+  borderBottom: '1px solid rgba(255, 255, 255, 0.135)',
+  transition: 'color 0.15s ease, border-color 0.15s ease',
 }
 
 export default function HomePage() {
@@ -49,108 +59,84 @@ export default function HomePage() {
             fontFamily: 'system-ui, sans-serif',
             fontSize: '1rem',
             color: '#7a7a7a',
-            marginBottom: 0,
+            marginBottom: '1.1rem',
             lineHeight: 1.6,
           }}>
             Curious about startups, intelligence, the universe, and how things work.
           </p>
+
+          <p style={{
+            fontFamily: 'Georgia, serif',
+            fontSize: '0.9375rem',
+            color: '#8a8a8a',
+            lineHeight: 1.7,
+            marginBottom: '1.75rem',
+            maxWidth: '420px',
+          }}>
+            This site is a home for writing, projects, and ideas I'm working through.
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2rem' }}>
+            {sections.map(({ href, label }) => (
+              <Link key={href} href={href} style={{
+                fontFamily: 'system-ui, sans-serif',
+                fontSize: '0.86rem',
+                color: '#f2f2f2',
+                border: '1px solid rgba(255, 255, 255, 0.188)',
+                padding: '0.42rem 0.95rem',
+                borderRadius: '5px',
+                display: 'inline-block',
+                letterSpacing: '0.01em',
+                whiteSpace: 'nowrap',
+              }}>
+                {label} →
+              </Link>
+            ))}
+          </div>
+
+          <div style={{
+            paddingTop: '1.1rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.09)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1.1rem',
+            flexWrap: 'wrap',
+          }}>
+            <a href={`mailto:${EMAIL}`} style={linkStyle} aria-label="Email">
+              <span>{EMAIL}</span>
+            </a>
+
+            {socials.map(({ href, label, handle }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                style={linkStyle}
+                aria-label={`${label} profile`}
+              >
+                {label === 'X' ? (
+                  <Image
+                    src="/x-logo.svg"
+                    alt="X"
+                    width={16}
+                    height={16}
+                    style={{ width: '0.85rem', height: '0.85rem', display: 'block' }}
+                  />
+                ) : (
+                  <InstagramIcon />
+                )}
+                <span>{handle}</span>
+                <span aria-hidden="true" style={{ fontSize: '0.7rem', color: '#8a8a8a' }}>↗</span>
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="home-hero-galaxy">
           <GalaxyLazy className="home-galaxy-canvas" />
         </div>
       </section>
-
-      <div className="home-below">
-      <p style={{
-        fontFamily: 'Georgia, serif',
-        fontSize: '0.9375rem',
-        color: '#8a8a8a',
-        lineHeight: 1.75,
-        marginBottom: '3.5rem',
-        maxWidth: '460px',
-      }}>
-        This site is a home for writing, projects, and ideas I'm working through.
-      </p>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start' }}>
-        {sections.map(({ href, label }) => (
-          <Link key={href} href={href} style={{
-            fontFamily: 'system-ui, sans-serif',
-            fontSize: '0.875rem',
-            color: '#f2f2f2',
-            border: '1px solid rgba(255, 255, 255, 0.188)',
-            padding: '0.45rem 1rem',
-            borderRadius: '5px',
-            display: 'inline-block',
-            letterSpacing: '0.01em',
-          }}>
-            {label} →
-          </Link>
-        ))}
-      </div>
-
-      <div style={{
-        marginTop: '3.25rem',
-        paddingTop: '1.25rem',
-        borderTop: '1px solid rgba(255, 255, 255, 0.09)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.9rem',
-        flexWrap: 'wrap',
-      }}>
-        <span style={{
-          fontFamily: 'system-ui, sans-serif',
-          fontSize: '0.72rem',
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: '#5c5c5c',
-        }}>
-          Elsewhere
-        </span>
-
-        {externalLinks.map(({ href, label }) => (
-          <a
-            key={href}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              fontFamily: 'system-ui, sans-serif',
-              fontSize: '0.84rem',
-              color: '#cfcfcf',
-              padding: '0.32rem 0.05rem',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.135)',
-              transition: 'color 0.15s ease, border-color 0.15s ease, transform 0.15s ease',
-            }}
-            aria-label={`${label} profile`}
-          >
-            {label === 'X' ? (
-              <Image
-                src="/x-logo.svg"
-                alt="X"
-                width={16}
-                height={16}
-                style={{
-                  width: '0.9rem',
-                  height: '0.9rem',
-                  display: 'block',
-                }}
-              />
-            ) : (
-              <>
-                <LinkedInIcon />
-                <span>{label}</span>
-              </>
-            )}
-            <span aria-hidden="true" style={{ fontSize: '0.72rem', color: '#f2f2f2' }}>↗</span>
-          </a>
-        ))}
-      </div>
-      </div>
     </div>
   )
 }
