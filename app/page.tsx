@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import AnimatedName from '@/components/AnimatedName'
+import GalaxyLazy from '@/components/galaxy/GalaxyLazy'
+import RocketLazy from '@/components/rocket/RocketLazy'
 
 export const metadata: Metadata = {
   title: 'Aki Bhabad',
@@ -34,19 +36,32 @@ function LinkedInIcon() {
 
 export default function HomePage() {
   return (
-    <div style={{ maxWidth: '680px', margin: '0 auto', padding: '7rem 1.5rem 6rem' }}>
-      <AnimatedName />
+    <div className="home-shell">
+      <section className="home-hero">
+        <div className="home-hero-rocket">
+          <RocketLazy className="home-rocket-canvas" />
+        </div>
 
-      <p style={{
-        fontFamily: 'system-ui, sans-serif',
-        fontSize: '1rem',
-        color: '#5e5e78',
-        marginBottom: '2.5rem',
-        lineHeight: 1.6,
-      }}>
-        Curious about startups, intelligence, the universe, and how things work.
-      </p>
+        <div className="home-hero-text">
+          <AnimatedName />
 
+          <p style={{
+            fontFamily: 'system-ui, sans-serif',
+            fontSize: '1rem',
+            color: '#5e5e78',
+            marginBottom: 0,
+            lineHeight: 1.6,
+          }}>
+            Curious about startups, intelligence, the universe, and how things work.
+          </p>
+        </div>
+
+        <div className="home-hero-galaxy">
+          <GalaxyLazy className="home-galaxy-canvas" />
+        </div>
+      </section>
+
+      <div className="home-below">
       <p style={{
         fontFamily: 'Georgia, serif',
         fontSize: '0.9375rem',
@@ -134,6 +149,7 @@ export default function HomePage() {
             <span aria-hidden="true" style={{ fontSize: '0.72rem', color: '#7c5cbf' }}>↗</span>
           </a>
         ))}
+      </div>
       </div>
     </div>
   )

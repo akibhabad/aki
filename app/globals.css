@@ -205,3 +205,78 @@ a {
   margin-bottom: 0.75rem;
   line-height: 1.6;
 }
+
+
+/* ── Home hero: rocket | name | galaxy ─────────── */
+
+.home-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem 6rem;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: clamp(150px, 17vw, 210px) minmax(0, 1fr) clamp(260px, 30vw, 380px);
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.home-hero-text {
+  min-width: 0;
+  max-width: 460px;
+}
+
+/* everything under the hero lines up with the name column */
+.home-below {
+  margin-left: calc(clamp(150px, 17vw, 210px) + 1.5rem);
+}
+
+.home-hero-rocket {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+.home-hero-galaxy {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  justify-self: end;
+  /* fade the square canvas into the page so it reads as open space */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 48%, rgba(0,0,0,0.6) 62%, transparent 74%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 48%, rgba(0,0,0,0.6) 62%, transparent 74%);
+}
+
+.home-galaxy-canvas,
+.home-rocket-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+@media (max-width: 760px) {
+  .home-shell {
+    max-width: 680px;
+  }
+  .home-hero {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .home-hero-galaxy {
+    grid-column: 1 / -1;
+    order: -1;
+    width: 280px;
+    justify-self: center;
+    margin: -2.5rem 0 -1.5rem;
+  }
+  .home-hero-rocket {
+    height: 260px;
+  }
+  .home-below {
+    margin-left: 0;
+  }
+}
