@@ -59,21 +59,10 @@ export default function HomePage() {
             fontFamily: 'system-ui, sans-serif',
             fontSize: '1rem',
             color: '#7a7a7a',
-            marginBottom: '1.1rem',
+            marginBottom: '1.75rem',
             lineHeight: 1.6,
           }}>
             Curious about startups, intelligence, the universe, and how things work.
-          </p>
-
-          <p style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: '0.9375rem',
-            color: '#8a8a8a',
-            lineHeight: 1.7,
-            marginBottom: '1.75rem',
-            maxWidth: '420px',
-          }}>
-            This site is a home for writing, projects, and ideas I'm working through.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2rem' }}>
