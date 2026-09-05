@@ -222,16 +222,19 @@ a {
   width: 100%;
   display: grid;
   grid-template-columns: clamp(140px, 16vw, 200px) minmax(0, 1fr) clamp(260px, 30vw, 400px);
+  grid-template-areas: "rocket text galaxy";
   align-items: center;
   gap: 1.5rem;
 }
 
 .home-hero-text {
+  grid-area: text;
   min-width: 0;
   max-width: 480px;
 }
 
 .home-hero-rocket {
+  grid-area: rocket;
   position: relative;
   width: 100%;
   height: 460px;
@@ -240,6 +243,7 @@ a {
 }
 
 .home-hero-galaxy {
+  grid-area: galaxy;
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -255,31 +259,126 @@ a {
   inset: 0;
 }
 
+.home-bio {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.98rem;
+  color: #9a9a9a;
+  line-height: 1.75;
+}
+.home-bio li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+.home-bio-mark {
+  color: #5c5c5c;
+  font-size: 0.85em;
+}
+
+.home-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.home-link {
+  font-family: system-ui, sans-serif;
+  font-size: 0.86rem;
+  color: #f2f2f2;
+  border: 1px solid rgba(255, 255, 255, 0.188);
+  padding: 0.42rem 0.95rem;
+  border-radius: 5px;
+  display: inline-block;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.home-contact {
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+.home-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.84rem;
+  color: #cfcfcf;
+  padding: 0.3rem 0.05rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.135);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.home-contact-arrow {
+  font-size: 0.7rem;
+  color: #8a8a8a;
+}
+
+/* ── Mobile: rocket and galaxy share the top row, content below ── */
 @media (max-width: 760px) {
   .home-shell {
     max-width: 680px;
-    padding: 5rem 1.5rem 3rem;
-    min-height: 0;
-    display: block;
+    padding: 3.25rem 1.25rem 1rem;
+    min-height: calc(100vh - 52px - 62px); /* nav + compact footer */
+    display: flex;
+    align-items: center;
   }
   .home-hero {
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 0.75rem;
-  }
-  .home-hero-galaxy {
-    grid-column: 1 / -1;
-    order: -1;
-    width: 280px;
-    justify-self: center;
-    margin: -2.5rem 0 -1.5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "rocket galaxy"
+      "text   text";
+    gap: 0.75rem 0.5rem;
+    align-items: center;
+    justify-items: center;
   }
   .home-hero-rocket {
-    height: 300px;
-    align-self: start;
-    margin-top: 0.5rem;
+    width: 100%;
+    height: 240px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  }
+  .home-hero-galaxy {
+    width: min(100%, 240px);
+    justify-self: center;
+    margin: 0;
+  }
+  .home-hero-text {
+    width: 100%;
+    max-width: none;
   }
   /* the nav already carries the name on small screens */
   .home-name {
     display: none;
+  }
+  .home-bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+  }
+  .home-links {
+    gap: 0.5rem;
+    margin-bottom: 1.1rem;
+  }
+  .home-link {
+    font-size: 0.82rem;
+    padding: 0.36rem 0.8rem;
+  }
+  .home-contact {
+    padding-top: 0.85rem;
+    gap: 0.4rem 1rem;
+  }
+  .home-contact-link {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.05rem;
+  }
+  .site-footer {
+    padding: 1.1rem 1.5rem !important;
   }
 }

@@ -38,18 +38,6 @@ function InstagramIcon() {
   )
 }
 
-const linkStyle: React.CSSProperties = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: '0.45rem',
-  fontFamily: 'system-ui, sans-serif',
-  fontSize: '0.84rem',
-  color: '#cfcfcf',
-  padding: '0.3rem 0.05rem',
-  borderBottom: '1px solid rgba(255, 255, 255, 0.135)',
-  transition: 'color 0.15s ease, border-color 0.15s ease',
-}
-
 export default function HomePage() {
   return (
     <div className="home-shell">
@@ -61,50 +49,25 @@ export default function HomePage() {
         <div className="home-hero-text">
           <AnimatedName />
 
-          <ul style={{
-            listStyle: 'none',
-            padding: 0,
-            margin: '0 0 1.75rem',
-            fontFamily: 'system-ui, sans-serif',
-            fontSize: '0.98rem',
-            color: '#9a9a9a',
-            lineHeight: 1.75,
-          }}>
+          <ul className="home-bio">
             {bio.map((line) => (
-              <li key={line} style={{ display: 'flex', gap: '0.6rem', alignItems: 'baseline' }}>
-                <span aria-hidden="true" style={{ color: '#5c5c5c', fontSize: '0.85em' }}>➢</span>
+              <li key={line}>
+                <span aria-hidden="true" className="home-bio-mark">➢</span>
                 <span>{line}</span>
               </li>
             ))}
           </ul>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2rem' }}>
+          <div className="home-links">
             {sections.map(({ href, label }) => (
-              <Link key={href} href={href} style={{
-                fontFamily: 'system-ui, sans-serif',
-                fontSize: '0.86rem',
-                color: '#f2f2f2',
-                border: '1px solid rgba(255, 255, 255, 0.188)',
-                padding: '0.42rem 0.95rem',
-                borderRadius: '5px',
-                display: 'inline-block',
-                letterSpacing: '0.01em',
-                whiteSpace: 'nowrap',
-              }}>
+              <Link key={href} href={href} className="home-link">
                 {label} →
               </Link>
             ))}
           </div>
 
-          <div style={{
-            paddingTop: '1.1rem',
-            borderTop: '1px solid rgba(255, 255, 255, 0.09)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '1.1rem',
-            flexWrap: 'wrap',
-          }}>
-            <a href={`mailto:${EMAIL}`} style={linkStyle} aria-label="Email">
+          <div className="home-contact">
+            <a href={`mailto:${EMAIL}`} className="home-contact-link" aria-label="Email">
               <span>{EMAIL}</span>
             </a>
 
@@ -114,7 +77,7 @@ export default function HomePage() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                style={linkStyle}
+                className="home-contact-link"
                 aria-label={`${label} profile`}
               >
                 {label === 'X' ? (
@@ -129,7 +92,7 @@ export default function HomePage() {
                   <InstagramIcon />
                 )}
                 <span>{handle}</span>
-                <span aria-hidden="true" style={{ fontSize: '0.7rem', color: '#8a8a8a' }}>↗</span>
+                <span aria-hidden="true" className="home-contact-arrow">↗</span>
               </a>
             ))}
           </div>
