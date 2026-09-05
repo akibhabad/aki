@@ -207,6 +207,113 @@ a {
 }
 
 
+/* ── Site nav ───────────────────────────────────── */
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  border-bottom: 1px solid #1f1f1f;
+  background-color: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.site-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.site-nav-brand {
+  font-family: Georgia, serif;
+  font-size: 0.9375rem;
+  color: #ececec;
+  flex-shrink: 0;
+}
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  flex-shrink: 0;
+}
+.site-nav-link {
+  font-family: system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #5c5c5c;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: color 0.15s;
+  letter-spacing: 0.01em;
+}
+.site-nav-link:hover { color: #9a9a9a; }
+.site-nav-link.is-active { color: #bdbdbd; }
+
+/* mobile toggle + panel, hidden on desktop */
+.site-nav-toggle {
+  display: none;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.6rem;
+  background: none;
+  border: 0;
+  padding: 0.4rem 0;
+  color: #bdbdbd;
+  font-family: system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.site-nav-toggle-icon {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 18px;
+}
+.site-nav-toggle-icon span {
+  display: block;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.2s ease;
+}
+.site-nav-toggle[aria-expanded="true"] .site-nav-toggle-icon span:first-child {
+  transform: translateY(3px) rotate(45deg);
+}
+.site-nav-toggle[aria-expanded="true"] .site-nav-toggle-icon span:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+.site-nav-panel {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .site-nav-links { display: none; }
+  .site-nav-toggle { display: inline-flex; }
+  .site-nav-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem 1.25rem;
+    border-top: 1px solid #1f1f1f;
+    background-color: rgba(10, 10, 10, 0.96);
+  }
+  .site-nav-panel[hidden] { display: none; }
+  .site-nav-panel-link {
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+    color: #8a8a8a;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .site-nav-panel-link:last-child { border-bottom: 0; }
+  .site-nav-panel-link.is-active { color: #ececec; }
+}
+
 /* ── Home hero: rocket | name | galaxy ─────────── */
 
 .home-shell {

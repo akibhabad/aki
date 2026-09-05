@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -15,69 +16,63 @@ const links = [
 
 export default function Nav() {
   const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
+  // close the mobile panel on navigation and on Escape
+  useEffect(() => { setOpen(false) }, [pathname])
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
   return (
-    <header style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      zIndex: 50,
-      borderBottom: '1px solid #1f1f1f',
-      backgroundColor: 'rgba(10, 10, 10, 0.9)',
-      backdropFilter: 'blur(8px)',
-      WebkitBackdropFilter: 'blur(8px)',
-    }}>
-      <div style={{
-        maxWidth: '1100px',
-        margin: '0 auto',
-        padding: '0 1.5rem',
-        height: '52px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '2rem',
-      }}>
-        <Link href="/" style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: '0.9375rem',
-          color: '#ececec',
-          flexShrink: 0,
-        }}>
+    <header className="site-nav">
+      <div className="site-nav-inner">
+        <Link href="/" className="site-nav-brand">
           Aki Bhabad
         </Link>
 
-        <nav style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.125rem',
-          overflowX: 'auto',
-          flexShrink: 0,
-        }}>
-          {links.slice(1).map(({ href, label }) => {
-            const active = isActive(href)
-            return (
-              <Link
-                key={href}
-                href={href}
-                style={{
-                  fontFamily: 'system-ui, sans-serif',
-                  fontSize: '0.8125rem',
-                  color: active ? '#bdbdbd' : '#5c5c5c',
-                  padding: '0.3rem 0.6rem',
-                  borderRadius: '4px',
-                  whiteSpace: 'nowrap',
-                  transition: 'color 0.15s',
-                  letterSpacing: '0.01em',
-                }}
-              >
-                {label}
-              </Link>
-            )
-          })}
+        <nav className="site-nav-links" aria-label="Primary">
+          {links.slice(1).map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`site-nav-link${isActive(href) ? ' is-active' : ''}`}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
+
+        <button
+          type="button"
+          className="site-nav-toggle"
+          aria-expanded={open}
+          aria-controls="site-nav-panel"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="site-nav-toggle-label">{open ? 'Close' : 'Menu'}</span>
+          <span className="site-nav-toggle-icon" aria-hidden="true">
+            <span /><span />
+          </span>
+        </button>
+      </div>
+
+      <div id="site-nav-panel" className="site-nav-panel" hidden={!open}>
+        {links.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={`site-nav-panel-link${isActive(href) ? ' is-active' : ''}`}
+          >
+            {label}
+          </Link>
+        ))}
       </div>
     </header>
   )

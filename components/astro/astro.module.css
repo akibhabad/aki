@@ -1,0 +1,654 @@
+/* Full-screen astrophotography experience.
+   Neutral, near-black chrome — the photographs supply the color. */
+
+.experience {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: #050505;
+  color: #ececec;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.scroller {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+}
+
+.slideScroll {
+  overflow-y: auto;
+}
+
+/* ── Top bar ─────────────────────────────────── */
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem;
+  pointer-events: none;
+}
+
+.topbar > * {
+  pointer-events: auto;
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.chromeLink {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.chromeLink:hover {
+  color: #ececec;
+}
+
+.counter {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  color: #7a7a7a;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Shared caption typography ───────────────── */
+
+.kicker {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+}
+
+/* ── Photo slides ────────────────────────────── */
+
+.photoSlide {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+}
+
+.stage {
+  position: relative;
+  margin: 3.4rem 1.4rem 0;
+}
+
+.photoImg {
+  object-fit: contain;
+}
+
+.captionBar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem 1.35rem;
+}
+
+.captionText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.photoTitle {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: #ececec;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.catalog {
+  color: #8a8a8a;
+}
+
+.metaLine {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: #7a7a7a;
+  max-width: 56ch;
+  line-height: 1.55;
+}
+
+.detailsBtn {
+  flex-shrink: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  background: none;
+  border: 1px solid #2a2a2a;
+  border-radius: 3px;
+  padding: 0.5rem 0.85rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.detailsBtn:hover {
+  color: #ececec;
+  border-color: #444444;
+}
+
+/* ── Intro slide ─────────────────────────────── */
+
+.introImg {
+  object-fit: cover;
+}
+
+.introScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 5, 0.55) 0%,
+    rgba(5, 5, 5, 0.35) 45%,
+    rgba(5, 5, 5, 0.82) 100%
+  );
+}
+
+.introContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.1rem;
+  padding: 0 1.5rem;
+}
+
+.introTitle {
+  font-family: Georgia, serif;
+  font-size: clamp(2.4rem, 6.5vw, 4.25rem);
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  color: #f2f2f2;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.introSub {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  max-width: 44ch;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  color: #7a7a7a;
+}
+
+/* ── Compare slide ───────────────────────────── */
+
+.fadeImg {
+  object-fit: contain;
+  transition: opacity 0.5s ease;
+}
+
+.segmented {
+  flex-shrink: 0;
+  display: flex;
+  border: 1px solid #2a2a2a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.segmented button {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  background: none;
+  border: none;
+  padding: 0.5rem 0.85rem;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.segmented button + button {
+  border-left: 1px solid #2a2a2a;
+}
+
+.segmented button[aria-pressed='true'] {
+  color: #f2f2f2;
+  background: #161616;
+}
+
+/* ── Scenes slide ────────────────────────────── */
+
+.scenesSlide {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 4.5rem 1.5rem 2.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.scenesHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sectionTitle {
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: #ececec;
+  margin: 0;
+}
+
+.scenesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.sceneCard {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sceneImgWrap {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.sceneCaption {
+  font-size: 0.73rem;
+  line-height: 1.6;
+  color: #7a7a7a;
+}
+
+/* ── End slide ───────────────────────────────── */
+
+.endSlide {
+  display: flex;
+}
+
+.endInner {
+  max-width: 620px;
+  margin: auto;
+  padding: 5.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.endTitle {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #f2f2f2;
+  margin: 0 0 0.4rem;
+}
+
+.endBody {
+  font-family: Georgia, serif;
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: #c4c4c4;
+  margin: 0;
+}
+
+.endHeading {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  margin: 1.6rem 0 0.2rem;
+}
+
+.gearList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.gearRow {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid #141414;
+}
+
+.gearRow dt {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  padding-top: 0.2em;
+}
+
+.gearRow dd {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: #c4c4c4;
+  margin: 0;
+}
+
+.endLinks {
+  margin-top: 2.2rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid #141414;
+}
+
+.backLink {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.84rem;
+  color: #f2f2f2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.188);
+  padding-bottom: 0.1rem;
+  transition: border-color 0.15s ease;
+}
+
+.backLink:hover {
+  border-color: #f2f2f2;
+}
+
+/* ── Details panel ───────────────────────────── */
+
+.panelScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  background: rgba(5, 5, 5, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.panelScrimOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  width: min(430px, 100%);
+  background: #0a0a0a;
+  border-left: 1px solid #1f1f1f;
+  padding: 1.9rem 1.75rem 3rem;
+  overflow-y: auto;
+  transform: translateX(102%);
+  transition: transform 0.3s ease;
+}
+
+.panelOpen {
+  transform: translateX(0);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.panelHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.panelTitle {
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #f2f2f2;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.closeBtn {
+  flex-shrink: 0;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: #7a7a7a;
+  background: none;
+  border: none;
+  padding: 0.15rem 0.3rem;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.closeBtn:hover {
+  color: #ececec;
+}
+
+.panelDesc {
+  font-family: Georgia, serif;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #ececec;
+  margin: 0 0 1.1rem;
+}
+
+.panelStory {
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #bdbdbd;
+  margin: 0 0 1.05rem;
+}
+
+.captureList {
+  margin: 1.6rem 0 0;
+}
+
+.captureRow {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.9rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid #171717;
+}
+
+.captureRow dt {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  padding-top: 0.22em;
+}
+
+.captureRow dd {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #d6d6d6;
+  margin: 0;
+}
+
+/* ── Index overlay ───────────────────────────── */
+
+.indexOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: #050505;
+  overflow-y: auto;
+}
+
+.indexInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.1rem 1.4rem 3rem;
+}
+
+.indexHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+
+.indexGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.4rem 1.25rem;
+}
+
+.indexItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.indexThumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+}
+
+.indexItem:hover .indexThumb {
+  opacity: 1;
+}
+
+.indexItem[data-active='true'] .indexThumb {
+  outline: 1px solid #5c5c5c;
+  outline-offset: 3px;
+  opacity: 1;
+}
+
+.indexCaption {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: #9a9a9a;
+  line-height: 1.5;
+}
+
+/* ── Responsive ──────────────────────────────── */
+
+@media (max-width: 720px) {
+  .stage {
+    margin: 3.2rem 0.75rem 0;
+  }
+
+  .captionBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 0.9rem 1.1rem 1.2rem;
+  }
+
+  .metaLine {
+    max-width: none;
+  }
+
+  .panel {
+    top: auto;
+    left: 0;
+    width: 100%;
+    height: 78vh;
+    height: 78dvh;
+    border-left: none;
+    border-top: 1px solid #1f1f1f;
+    transform: translateY(103%);
+  }
+
+  .panelOpen {
+    transform: translateY(0);
+  }
+
+  .scenesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .scenesSlide {
+    justify-content: flex-start;
+  }
+
+  .gearRow,
+  .captureRow {
+    grid-template-columns: 96px 1fr;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panelScrim,
+  .fadeImg,
+  .indexThumb,
+  .detailsBtn,
+  .chromeLink,
+  .segmented button {
+    transition: none;
+  }
+}
