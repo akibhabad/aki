@@ -24,7 +24,7 @@ const bio = [
 const EMAIL = 'akibhabad7@gmail.com'
 
 const socials = [
-  { href: 'https://x.com/_bhab',              label: 'X',         handle: '@_bhab'   },
+  { href: 'https://x.com/akibhabad',          label: 'X',         handle: '@akibhabad' },
   { href: 'https://www.instagram.com/gpt.aki', label: 'Instagram', handle: '@gpt.aki' },
 ]
 
