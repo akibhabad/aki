@@ -278,4 +278,8 @@ a {
     align-self: start;
     margin-top: 0.5rem;
   }
+  /* the nav already carries the name on small screens */
+  .home-name {
+    display: none;
+  }
 }

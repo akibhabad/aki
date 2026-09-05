@@ -40,7 +40,7 @@ export default function AnimatedName() {
         }
       `}</style>
 
-      <h1 style={{
+      <h1 className="home-name" style={{
         fontFamily: 'Georgia, serif',
         fontSize: 'clamp(2rem, 6vw, 3.25rem)',
         fontWeight: 'normal',
