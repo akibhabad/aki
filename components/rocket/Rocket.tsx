@@ -238,7 +238,8 @@ export default function Rocket({ className, style }: { className?: string; style
     pivot.add(spinner)
     scene.add(pivot)
 
-    // on narrow screens the rocket lies horizontally under the text
+    // on narrow screens the rocket lies under the text, nose toward the top right
+    const TILT = THREE.MathUtils.degToRad(18) // elevation above horizontal
     const narrow = window.matchMedia('(max-width: 760px)')
     let horizontal = narrow.matches
     const onNarrow = (e: MediaQueryListEvent) => { horizontal = e.matches; fit(st.explode) }
@@ -290,7 +291,10 @@ export default function Rocket({ className, style }: { className?: string; style
       const vfov = THREE.MathUtils.degToRad(camera.fov)
       if (horizontal) {
         const hfov = 2 * Math.atan(Math.tan(vfov / 2) * camera.aspect)
-        camera.position.z = (span * 0.64) / Math.tan(hfov / 2)
+        const girth = 1.8 + 1.9 * ease // booster-to-booster width, grows when exploded
+        const w = span * Math.cos(TILT) + girth * Math.sin(TILT)
+        const h = span * Math.sin(TILT) + girth * Math.cos(TILT)
+        camera.position.z = Math.max((w * 0.6) / Math.tan(hfov / 2), (h * 0.6) / Math.tan(vfov / 2))
       } else {
         camera.position.z = (span * 0.62) / Math.tan(vfov / 2)
       }
@@ -380,7 +384,7 @@ export default function Rocket({ className, style }: { className?: string; style
       }
       spinner.rotation.y = st.yaw + st.parallaxX * 0.18
       pivot.rotation.x = st.pitch + st.parallaxY * 0.08
-      pivot.rotation.z = horizontal ? -Math.PI / 2 : -0.06
+      pivot.rotation.z = horizontal ? -(Math.PI / 2 - TILT) : -0.06
 
       renderer.render(scene, camera)
       if (!shown) {
