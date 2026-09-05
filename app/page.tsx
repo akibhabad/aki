@@ -15,6 +15,12 @@ const sections = [
   { href: '/astro',    label: 'Astrophotography' },
 ]
 
+const bio = [
+  'techno-optimist',
+  'astronomy, intelligence, fitness & longevity',
+  '19 yr old cs & entrepreneurship student',
+]
+
 const EMAIL = 'akibhabad7@gmail.com'
 
 const socials = [
@@ -55,15 +61,22 @@ export default function HomePage() {
         <div className="home-hero-text">
           <AnimatedName />
 
-          <p style={{
+          <ul style={{
+            listStyle: 'none',
+            padding: 0,
+            margin: '0 0 1.75rem',
             fontFamily: 'system-ui, sans-serif',
-            fontSize: '1rem',
-            color: '#7a7a7a',
-            marginBottom: '1.75rem',
-            lineHeight: 1.6,
+            fontSize: '0.98rem',
+            color: '#9a9a9a',
+            lineHeight: 1.75,
           }}>
-            Curious about startups, intelligence, the universe, and how things work.
-          </p>
+            {bio.map((line) => (
+              <li key={line} style={{ display: 'flex', gap: '0.6rem', alignItems: 'baseline' }}>
+                <span aria-hidden="true" style={{ color: '#5c5c5c', fontSize: '0.85em' }}>➢</span>
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2rem' }}>
             {sections.map(({ href, label }) => (
