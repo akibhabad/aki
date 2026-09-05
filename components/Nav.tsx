@@ -10,8 +10,6 @@ const links = [
   { href: '/projects', label: 'Projects' },
   { href: '/library', label: 'Library' },
   { href: '/astro', label: 'Astrophotography' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Nav() {
