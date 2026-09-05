@@ -231,9 +231,18 @@ export default function Rocket({ className, style }: { className?: string; style
     scene.add(fill)
 
     const { root, parts, panels } = buildRocket()
+    // spinner turns the rocket about its own axis; pivot sets orientation (upright or lying down)
+    const spinner = new THREE.Group()
+    spinner.add(root)
     const pivot = new THREE.Group()
-    pivot.add(root)
+    pivot.add(spinner)
     scene.add(pivot)
+
+    // on narrow screens the rocket lies horizontally under the text
+    const narrow = window.matchMedia('(max-width: 760px)')
+    let horizontal = narrow.matches
+    const onNarrow = (e: MediaQueryListEvent) => { horizontal = e.matches; fit(st.explode) }
+    narrow.addEventListener('change', onNarrow)
 
     const H = 109 * S // stack height
     root.position.y = -H / 2 - 0.15
@@ -272,7 +281,19 @@ export default function Rocket({ className, style }: { className?: string; style
       // keep the expanded stack centred and framed
       const extra = 47 * S * ease
       root.position.y = -(H + extra) / 2 - 0.15 + 6 * S * ease
-      camera.position.z = 25.5 + 10 * ease
+      fit(ease)
+    }
+
+    /** place the camera so the (possibly exploded) stack fits the frame in either orientation */
+    function fit(ease: number) {
+      const span = H + 47 * S * ease + 1.0
+      const vfov = THREE.MathUtils.degToRad(camera.fov)
+      if (horizontal) {
+        const hfov = 2 * Math.atan(Math.tan(vfov / 2) * camera.aspect)
+        camera.position.z = (span * 0.64) / Math.tan(hfov / 2)
+      } else {
+        camera.position.z = (span * 0.62) / Math.tan(vfov / 2)
+      }
     }
 
     function resize() {
@@ -281,6 +302,7 @@ export default function Rocket({ className, style }: { className?: string; style
       renderer.setSize(w, h, false)
       camera.aspect = w / h
       camera.updateProjectionMatrix()
+      fit(st.explode)
     }
     resize()
     const ro = new ResizeObserver(resize)
@@ -288,6 +310,7 @@ export default function Rocket({ className, style }: { className?: string; style
 
     camera.position.set(0, 1.2, 25.5)
     camera.lookAt(0, -0.2, 0)
+    fit(0)
 
     /* interaction */
     const onWindowMove = (e: PointerEvent) => {
@@ -355,9 +378,9 @@ export default function Rocket({ className, style }: { className?: string; style
         st.yawVel *= 0.9
         st.pitch += (0 - st.pitch) * k * 0.3
       }
-      pivot.rotation.y = st.yaw + st.parallaxX * 0.18
+      spinner.rotation.y = st.yaw + st.parallaxX * 0.18
       pivot.rotation.x = st.pitch + st.parallaxY * 0.08
-      pivot.rotation.z = -0.06
+      pivot.rotation.z = horizontal ? -Math.PI / 2 : -0.06
 
       renderer.render(scene, camera)
       if (!shown) {
@@ -369,7 +392,7 @@ export default function Rocket({ className, style }: { className?: string; style
     frame()
     if (process.env.NODE_ENV !== 'production') {
       ;(window as any).__rocketDebug = {
-        set(explode: number, yaw?: number) { st.explode = explode; if (yaw !== undefined) st.yaw = yaw; applyExplode(explode); pivot.rotation.y = st.yaw; renderer.render(scene, camera) },
+        set(explode: number, yaw?: number) { st.explode = explode; if (yaw !== undefined) st.yaw = yaw; applyExplode(explode); spinner.rotation.y = st.yaw; renderer.render(scene, camera) },
       }
     }
 
@@ -377,6 +400,7 @@ export default function Rocket({ className, style }: { className?: string; style
       cancelAnimationFrame(raf)
       ro.disconnect()
       io.disconnect()
+      narrow.removeEventListener('change', onNarrow)
       window.removeEventListener('pointermove', onWindowMove)
       el.removeEventListener('pointerenter', onEnter)
       el.removeEventListener('pointerleave', onLeave)
