@@ -27,7 +27,8 @@ export async function generateStaticParams() {
     .map(f => ({ slug: f.replace(/\.mdx$/, '') }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const fp = path.join(contentDir, `${params.slug}.mdx`)
   if (!fs.existsSync(fp)) return { title: 'Not Found' }
   const { data } = matter(fs.readFileSync(fp, 'utf-8'))
@@ -35,7 +36,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return { title: fm.title, description: fm.dek ?? fm.summary }
 }
 
-export default async function ArticlePage({ params }: { params: { slug: string } }) {
+export default async function ArticlePage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const fp = path.join(contentDir, `${params.slug}.mdx`)
 
   if (!fs.existsSync(fp)) {
